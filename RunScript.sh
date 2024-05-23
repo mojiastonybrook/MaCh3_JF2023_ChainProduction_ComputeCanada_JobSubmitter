@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd MACH3INSTALL
+source setup.sh
+export OMP_NUM_THREADS=NTHREADS
+
+ID=$SLURM_ARRAY_TASK_ID
+
+#INSERTJOB
+
+#INSERTWAIT

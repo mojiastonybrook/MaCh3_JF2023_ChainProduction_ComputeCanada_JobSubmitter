@@ -8,7 +8,7 @@ The codes are used to create the necessary job scripts, run scripts and inputs f
   ```
   export OUTDIR=/home/mojia/scratch/jointfit/SKonly
   ```
-- Go the MaCh3 install directory and soure the `setup.sh` there to set up the MaCh3 related environmental variables.
+- Go to the MaCh3 install directory and soure the `setup.sh` there to set up the MaCh3 related environmental variables.
 
 - In the JobSubmitter directory, check the contents in the subdirectory `SampleConfigs` to find the config cards for the samples. If no files are found, copy the corresponding files from MaCh3 install to this subdirectory.
    
@@ -22,10 +22,29 @@ The codes are used to create the necessary job scripts, run scripts and inputs f
   ```
 - The script would ask sevaral questions for the exact setups of the batch of the parallel chains. Here is an specific example for those settings with some breif explanations. In principle the users could change the settings according to their actual needs.
 
-   1. > Job Name?
+   1. > Job Name?: 
       >
       > skonly_batch_0
       
-      The job name
-   2. test 
+      The remote job name appears on slurm.
+   2. > How many jobs?:
+      >
+      > 4
+      
+      The number of job arrays inside this batch.
+      Slurm supports a feature of utilizing job array for repetitive submissions of one SubmitScript. With this, the same one SubmitScript would be handed to the cluster for the same number of times as the job arrays, each time with an automatic changed id for separation.
+
+   3. > How many GPUs per job?:
+      >
+      > 4
+      > 
+      > How many execs per job?:
+      >
+      > 4
+      >
+      > How many threads per job?:
+      >
+      > 32
+
+      The compute resource settings for the chains in one job array.
      

@@ -8,7 +8,9 @@ The codes are used to create the necessary job scripts, run scripts and inputs f
   ```
   export OUTDIR=/home/mojia/scratch/jointfit/SKonly
   ```
-- Soure the `setup.sh` in MaCh install to set up the MaCh3 related environmental variables.
+- Go the MaCh3 install directory and soure the `setup.sh` there to set up the MaCh3 related environmental variables.
+
+- In the JobSubmitter directory, check the contents in the subdirectory `SampleConfigs` to find the config cards for the samples. If no files are found, copy the corresponding files from MaCh3 install to this subdirectory.
    
 - Load the python module
   ```
@@ -18,4 +20,12 @@ The codes are used to create the necessary job scripts, run scripts and inputs f
   ```
   python LetsGo_03212023.py 
   ```
+- The script would ask sevaral questions for the exact setups of the batch of the parallel chains. Here is an specific example for those settings with some breif explanations. In principle the users could change the settings according to their actual needs.
+
+   1. > Job Name?
+      >
+      > skonly_batch_0
+      
+      The job name
+   2. test 
      

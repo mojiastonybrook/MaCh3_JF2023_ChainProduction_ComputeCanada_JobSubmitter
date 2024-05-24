@@ -8,4 +8,14 @@ The codes are used to create the necessary job scripts, run scripts and inputs f
   ```
   export OUTDIR=/home/mojia/scratch/jointfit/SKonly
   ```
-- Load the python module   
+- Soure the `setup.sh` in MaCh install to set up the MaCh3 related environmental variables.
+   
+- Load the python module
+  ```
+  module load python
+  ```
+- Run the python script and answer the prompt questions
+  ```
+  python LetsGo_03212023.py 
+  ```
+     

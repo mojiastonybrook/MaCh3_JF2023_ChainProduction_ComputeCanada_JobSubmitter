@@ -106,3 +106,5 @@ The codes are used to create the necessary job scripts, run scripts and inputs f
     13. > Continue? (0 for no, 1 for yes):
         
         If yes, the rest process would be done by the codes; if no, the codes stop here.
+        
+- Check the newly created the subdirectory.

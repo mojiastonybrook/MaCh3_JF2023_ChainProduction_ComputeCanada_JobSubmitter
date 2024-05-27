@@ -10,7 +10,7 @@ The codes are used to create the necessary job scripts, run scripts and inputs f
   ```
 - Go to the MaCh3 install directory and soure the `setup.sh` there to set up the MaCh3 related environmental variables.
 
-- In the JobSubmitter directory, check the contents in the subdirectory `SampleConfigs` to find the config cards for the samples. If no files are found, copy the corresponding files from MaCh3 install to this subdirectory.
+- Back in the JobSubmitter directory, check the contents in the subdirectory `SampleConfigs` to find the config cards for the samples. If no files are found, copy the corresponding files from MaCh3 install to this subdirectory.
    
 - Load the python module
   ```
@@ -48,7 +48,7 @@ The codes are used to create the necessary job scripts, run scripts and inputs f
 
       The compute resource settings for the chains in one job array.
 
-      `execs` means an individual Markov chain. Usually one GPU and 8 threads is assigned to one chain. In this example, in one job array there are 4 chains thus 4 GPUs and 32 threads intotal should be provided to this one job array.
+      `execs` means an individual Markov chain. Usually 1 GPU and 8 threads are assigned to one chain. In this example, in one job array there are 4 chains thus 4 GPUs and 32 threads intotal should be provided to this one job array.
 
    4. > How many steps per chain?:
       >
@@ -60,7 +60,7 @@ The codes are used to create the necessary job scripts, run scripts and inputs f
       >
       > 4
       
-      We want to run the chain as long as possible, but there is a time limit for the remote job. Thus we could break one chain into serval subchain, with the later one starting at the point where the previous one stops. Running one subchain is called an `iteration` here.
+      We want to run the chain as long as possible, but there is a time limit for the remote job. Thus we could break one chain into serval successive subchains, with the later subchain always starting at the point where the previous one stops. Running one subchain is called an `iteration` here.
 
    6. > Executable to run? (Given in relative path to MaCh3 Install, e.g. ./bin/jointFit):
       >
@@ -77,7 +77,7 @@ The codes are used to create the necessary job scripts, run scripts and inputs f
       >
       > SampleConfigs
 
-      Templates for the samples
+      Subdirectory of the templates for the samples
 
    9. > Run Script Name:
       >
@@ -108,3 +108,20 @@ The codes are used to create the necessary job scripts, run scripts and inputs f
         If yes, the rest process would be done by the codes; if no, the codes stop here.
         
 - Check the newly created the subdirectory.
+
+  There should be a new subdirectory named with the date when the users create it. In that directory a subdirectory with the label provided in Step.11 would appear, then further inside it the subdirectories for the iterations. In the SubmitScript subdirectory of a certain iteration directory exist the configuration cards for the chains in this batch, along with the run script and submission script.
+
+  According to the example settings above, in one batch a total of 16 chains should be generated, because we require 4 job arrays and in one array 4 parallel chains.
+
+## The contents in the repository 
+- `LetsGo_03212023.py`
+  the major codes that prepare the inputs of running MCMC and submission of remote jobs.
+  
+- Templates of configuration card
+  there are 2 examples provided. Users could include their own modified one for any specific settings of fits.
+  
+- Sample configuration cards
+  `SampleConfigs`
+  
+- run script template
+- submission script template

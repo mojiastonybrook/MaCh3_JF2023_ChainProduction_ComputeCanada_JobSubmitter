@@ -115,12 +115,15 @@ The codes are used to create the necessary job scripts, run scripts and inputs f
 
 ## The contents in the repository 
 - `LetsGo_03212023.py`
+  
   the major codes that prepare the inputs of running MCMC and submission of remote jobs.
   
 - Templates of configuration card
+  
   there are 2 examples provided. Users could include their own modified one for any specific settings of fits.
   
 - Sample configuration cards
+  
   `SampleConfigs`
   
 - run script template
